@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Button = (props) => {  
+const NumberButton = (props) => {  
     return (
             <button onClick={(e) => {
                 props.updateTotal(props.value);
@@ -10,4 +10,4 @@ const Button = (props) => {
     );
 };
 
-export default Button;
+export default NumberButton;
