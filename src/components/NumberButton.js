@@ -2,7 +2,7 @@ import React from 'react';
 
 const NumberButton = (props) => {  
     return (
-            <button onClick={(e) => {
+            <button className="button" onClick={(e) => {
                 props.updateTotal(props.value);
             }}>
                 {props.value}

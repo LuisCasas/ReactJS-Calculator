@@ -83,7 +83,7 @@ export default class Calculator extends React.Component{
 
     render(){
         return(
-            <div>
+            <div className="container">
                 <Header />
                 <p>Calculation: {this.state.totalText}</p>
                 <p>Subtotal: {this.state.subtotal}</p>
@@ -114,8 +114,8 @@ export default class Calculator extends React.Component{
                     <ActionButton calculationAction={this.calculationAction} value="/" />
                 </div>      
                 <div>
-                    <button onClick={this.clearCalculation}>Clear all</button>
-                </div>                              
+                    <button className="button" onClick={this.clearCalculation}>Clear all</button>
+                </div>                      
             </div>
         );
     };

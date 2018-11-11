@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Calculator from './components/Calculator';
+import CalculatorApp from './components/CalculatorApp';
 
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 
-ReactDOM.render(<Calculator />, document.getElementById('app'));
+ReactDOM.render(<CalculatorApp />, document.getElementById('app'));
