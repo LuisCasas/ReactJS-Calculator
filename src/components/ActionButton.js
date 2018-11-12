@@ -5,7 +5,7 @@ const ActionButton = (props) => {
         <button className="button" onClick={(e) => {
             props.calculationAction(props.value);
         }}>
-            {props.value}
+            {props.value  === '/' ? '÷' : props.value}
         </button>
     );   
 };

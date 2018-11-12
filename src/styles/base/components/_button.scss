@@ -4,10 +4,10 @@
     border-bottom: .6rem solid darken($purple, 10%);
     color: #ffffff;
     font-weight: bold;
-    font-size: $l-size;
-    margin-bottom: $m-size;
-    padding: 2.4rem;
-    width: 100%;
+    font-size: $m-size;
+    margin: $m-size 0;
+    padding: 1.4rem;
+    width: 95%;
 }
 
 .big-button:disabled{
@@ -17,10 +17,14 @@
 .button{
     background: $purple;
     border: none;
+    border: 1px solid darken($purple, 10%);
     border-bottom: .3rem solid darken($purple, 10%);
     color: #ffffff;
     font-weight: 500;
     padding:$s-size;
+    width: 23%;
+    border-radius: $s-size;
+    margin: 0.3rem;
 }
 
 .button--link{

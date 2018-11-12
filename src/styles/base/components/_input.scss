@@ -1,0 +1,11 @@
+
+.total__input{
+    background: $off-white;
+    border: none;
+    border-bottom: .3rem solid darken($dark-blue, 10%);
+    color: $dark-blue;
+    flex-grow: 1;
+    margin: $s-size;
+    padding: $s-size;
+    width: 88%;
+}

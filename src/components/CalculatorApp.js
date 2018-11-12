@@ -9,7 +9,7 @@ export default class Calculator extends React.Component{
         totalText: '',
         valueNumber: 0,
         calculation: undefined,
-        subtotal: 0
+        subtotal: ''
     };
 
     updateTotal = (value) => {
@@ -25,7 +25,8 @@ export default class Calculator extends React.Component{
             return ({
                 totalText: `${prevState.totalText}${value}`,
                 valueNumber: valueNumber,
-                subtotal: prevState.subtotal
+                subtotal: prevState.subtotal,
+                total: ''
             });
         });
     };
@@ -34,7 +35,7 @@ export default class Calculator extends React.Component{
         this.setState(() => ({
             totalText: '',
             calculation: undefined,
-            subtotal: 0,
+            subtotal: '',
             valueNumber: 0,
             total: ''
         })); 
@@ -52,7 +53,7 @@ export default class Calculator extends React.Component{
                 return this.addValues(this.state.subtotal, this.state.valueNumber); 
             case '-':
                 return this.subtractValues(this.state.subtotal, this.state.valueNumber); 
-            case '*':
+            case 'x':
                 return this.multiplyValues(this.state.subtotal, this.state.valueNumber); 
             case '/':
                 return this.divideValues(this.state.subtotal, this.state.valueNumber);
@@ -67,13 +68,13 @@ export default class Calculator extends React.Component{
             this.setState((prevState) => ({
                 totalText: '',
                 calculation: undefined,
-                subtotal: 0,
+                subtotal: '',
                 valueNumber: 0,
                 total: this.calculation(prevState.calculation)
             })); 
         } else {
             this.setState((prevState) => ({
-                totalText: `${prevState.totalText}${action}`,
+                totalText: `${prevState.totalText} ${action} `,
                 calculation: action,
                 subtotal: this.calculation(prevState.calculation),
                 valueNumber: 0
@@ -85,14 +86,14 @@ export default class Calculator extends React.Component{
         return(
             <div className="container">
                 <Header />
-                <p>Calculation: {this.state.totalText}</p>
-                <p>Subtotal: {this.state.subtotal}</p>
-                {this.state.total && <p>Total: {this.state.total}</p>}
+                <input className="total__input" type="text" value={this.state.totalText} disabled />
+                {this.state.subtotal && <input className="total__input" type="text" value={this.state.subtotal} disabled /> }
+                {this.state.total && <input className="total__input" type="text" value={`Total: ${this.state.total}`} /> }
                 <div>
                     <NumberButton updateTotal={this.updateTotal} value={1} />
                     <NumberButton updateTotal={this.updateTotal} value={2} />
                     <NumberButton updateTotal={this.updateTotal} value={3} />
-                    <ActionButton calculationAction={this.calculationAction} value="*" />
+                    <ActionButton calculationAction={this.calculationAction} value="x" />
                 </div>
                 <div>
                     <NumberButton updateTotal={this.updateTotal} value={4} />
@@ -114,7 +115,7 @@ export default class Calculator extends React.Component{
                     <ActionButton calculationAction={this.calculationAction} value="/" />
                 </div>      
                 <div>
-                    <button className="button" onClick={this.clearCalculation}>Clear all</button>
+                    <button className="big-button" onClick={this.clearCalculation}>Clear all</button>
                 </div>                      
             </div>
         );
